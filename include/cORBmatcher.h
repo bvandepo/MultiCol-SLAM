@@ -147,7 +147,7 @@ namespace MultiColSLAM
 			double th = 2.5);
 		int Fuse(cMultiKeyFrame* curKF,
 			std::vector<cMultiKeyFrame*> neighKFs,
-			std::unordered_map<cMapPoint*, int> &vpMapPoints,
+			std::tr1::unordered_map<cMapPoint*, int> &vpMapPoints,
 			double th = 2.5);
 		int Fuse(cMultiKeyFrame* curKF,
 			std::vector<cMapPoint*> &vpMapPoints,

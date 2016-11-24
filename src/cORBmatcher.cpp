@@ -484,7 +484,7 @@ int cORBmatcher::SearchByProjection(cMultiFrame &F1,
 
     int nmatches = 0;
 
-	std::unordered_map<cMapPoint*, int> mapPt_2_obs_idx;
+	std::tr1::unordered_map<cMapPoint*, int> mapPt_2_obs_idx;
 	for (size_t i1 = 0, iend1 = F1.mvpMapPoints.size(); i1 < iend1; ++i1)
     {
         cMapPoint* pMP1 = F1.mvpMapPoints[i1];

@@ -154,12 +154,12 @@ namespace MultiColSLAM
 		// this variable holds the mapping between keypoint ID and camera
 		// it was observed in
 		// [key_id : cam_id]
-		std::unordered_map<size_t, int> keypoint_to_cam;
+		std::tr1::unordered_map<size_t, int> keypoint_to_cam;
 		// this variable holds the mapping between the continous indexing of all
 		// descriptors and keypoints and the image wise indexes
 		// it was observed in
 		// [cont_id : local_image_id]
-		std::unordered_map<size_t, int> cont_idx_to_local_cam_idx;
+		std::tr1::unordered_map<size_t, int> cont_idx_to_local_cam_idx;
 
 		cv::Matx<double, 4, 4> GetPose() { return camSystem.Get_M_t(); }
 		cv::Matx<double, 6, 1> GetPoseMin() { return camSystem.Get_M_t_min(); }

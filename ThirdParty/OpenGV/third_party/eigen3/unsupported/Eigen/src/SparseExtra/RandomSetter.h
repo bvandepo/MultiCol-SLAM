@@ -28,7 +28,7 @@ template<typename Scalar> struct StdMapTraits
 };
 
 #ifdef EIGEN_UNORDERED_MAP_SUPPORT
-/** Represents a std::unordered_map
+/** Represents a std::tr1::unordered_map
   *
   * To use it you need to both define EIGEN_UNORDERED_MAP_SUPPORT and include the unordered_map header file
   * yourself making sure that unordered_map is defined in the std namespace.
@@ -47,7 +47,7 @@ template<typename Scalar> struct StdMapTraits
 template<typename Scalar> struct StdUnorderedMapTraits
 {
   typedef int KeyType;
-  typedef std::unordered_map<KeyType,Scalar> Type;
+  typedef std::tr1::unordered_map<KeyType,Scalar> Type;
   enum {
     IsSorted = 0
   };

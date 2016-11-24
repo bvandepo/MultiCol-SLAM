@@ -62,7 +62,7 @@ namespace MultiColSLAM
 		std::vector<cv::KeyPoint> mvCurrentKeys;
 
 		std::vector<bool> mvbOutliers;
-		std::unordered_map<size_t, int> keyp_to_cam;
+		std::tr1::unordered_map<size_t, int> keyp_to_cam;
 		std::vector<cMapPoint*> mvpMatchedMapPoints;
 		int mnTracked;
 		std::vector<cv::KeyPoint> mvIniKeys;

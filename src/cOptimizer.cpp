@@ -156,7 +156,7 @@ namespace MultiColSLAM
 
 		const double thHuber = sqrt(5.991);
 
-		std::unordered_map<int, int> mapPointId_to_cont_g2oId;
+		std::tr1::unordered_map<int, int> mapPointId_to_cont_g2oId;
 		// SET MAP POINT VERTICES
 		for (size_t i = 0, iend = vpMP.size(); i < iend; ++i)
 		{
@@ -330,7 +330,7 @@ namespace MultiColSLAM
 
 		const double thHuber = 1.345 * huberMultiplier;
 
-		std::unordered_map<int, int> mapPointId_to_cont_g2oId;
+		std::tr1::unordered_map<int, int> mapPointId_to_cont_g2oId;
 		// SET MAP POINT VERTICES
 		std::vector<EdgeProjectXYZ2MCS*> vpEdges;
 		std::vector<VertexPointXYZ*> vVertices;
@@ -342,7 +342,7 @@ namespace MultiColSLAM
 		vVertices.reserve(N);
 		vInvSigmas2.reserve(N);
 		vnIndexEdge.reserve(N);
-		std::unordered_map<int, int> mapPt_2_obs_idx;
+		std::tr1::unordered_map<int, int> mapPt_2_obs_idx;
 		int pointIdx = 0;
 		int nInitialCorrespondences = 0;
 		for (int i = 0; i < N; ++i)
@@ -649,8 +649,8 @@ namespace MultiColSLAM
 		std::vector<size_t> cont_obsIndices;
 		const double thHuber = 1.345 * stdRecon;
 
-		std::unordered_map<int, int> mapPointId_to_cont_g2oId;
-		std::unordered_map<EdgeProjectXYZ2MCS*, int> mapMapPt_to_edge;
+		std::tr1::unordered_map<int, int> mapPointId_to_cont_g2oId;
+		std::tr1::unordered_map<EdgeProjectXYZ2MCS*, int> mapMapPt_to_edge;
 		//cout << "Size local map points: " << lLocalMapPoints.size() << endl;
 		for (std::list<cMapPoint*>::iterator lit = lLocalMapPoints.begin(), lend = lLocalMapPoints.end();
 			lit != lend; lit++)

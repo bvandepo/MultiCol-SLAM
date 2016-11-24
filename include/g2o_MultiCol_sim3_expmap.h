@@ -114,8 +114,8 @@ namespace MultiColSLAM
 		EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 			VertexSim3Expmap_Multi() {}
 		VertexSim3Expmap_Multi(
-			std::unordered_map<size_t, int>& kp_to_cam1,
-			std::unordered_map<size_t, int>& kp_to_cam2);
+			std::tr1::unordered_map<size_t, int>& kp_to_cam1,
+			std::tr1::unordered_map<size_t, int>& kp_to_cam2);
 
 		virtual void setToOriginImpl() {
 			_estimate = g2o::Sim3();
@@ -172,8 +172,8 @@ namespace MultiColSLAM
 			return false;
 		}
 
-		std::unordered_map<size_t, int> keypoint_to_cam1;
-		std::unordered_map<size_t, int> keypoint_to_cam2;
+		std::tr1::unordered_map<size_t, int> keypoint_to_cam1;
+		std::tr1::unordered_map<size_t, int> keypoint_to_cam2;
 	};
 
 

@@ -76,7 +76,7 @@ namespace MultiColSLAM
 			std::vector<int> vMatches; // Initialization: correspondeces with reference keypoints
 			std::vector<cv::KeyPoint> vCurrentKeys; // KeyPoints in current frame
 			std::vector<cMapPoint*> vMatchedMapPoints; // Tracked MapPoints in current frame
-			std::unordered_map<size_t, int> lkeyp_to_cam;
+			std::tr1::unordered_map<size_t, int> lkeyp_to_cam;
 			int state; // Tracking state
 
 			//Copy variable to be used within scoped mutex

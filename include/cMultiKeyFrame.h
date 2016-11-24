@@ -219,12 +219,12 @@ namespace MultiColSLAM
 		// this hashmap holds the mapping between keypoint ID and camera
 		// it was observed in
 		// [key_id : cam_id]
-		std::unordered_map<size_t, int> keypoint_to_cam;
+		std::tr1::unordered_map<size_t, int> keypoint_to_cam;
 		// this hashmap holds the mapping between the continous indexing of all
 		// descriptors and keypoints and the image wise indexes
 		// it was observed in
 		// [cont_id : local_image_id]
-		std::unordered_map<size_t, int> cont_idx_to_local_cam_idx;
+		std::tr1::unordered_map<size_t, int> cont_idx_to_local_cam_idx;
 
 		// other infos/statistics
 		size_t GetValidMapPointCnt();

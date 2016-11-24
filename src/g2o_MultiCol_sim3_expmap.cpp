@@ -23,8 +23,8 @@ namespace MultiColSLAM
 {
 
 	VertexSim3Expmap_Multi::VertexSim3Expmap_Multi(
-		std::unordered_map<size_t, int>& kp_to_cam1,
-		std::unordered_map<size_t, int>& kp_to_cam2)
+		std::tr1::unordered_map<size_t, int>& kp_to_cam1,
+		std::tr1::unordered_map<size_t, int>& kp_to_cam2)
 		: g2o::BaseVertex<7, g2o::Sim3>(),
 		keypoint_to_cam1(kp_to_cam1),
 		keypoint_to_cam2(kp_to_cam2)
