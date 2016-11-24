@@ -18,6 +18,10 @@
 
 project (MultiCol-SLAM)
 
+cmake_minimum_required(VERSION 3.5)
+
+
+
 IF(NOT CMAKE_BUILD_TYPE)
   SET(CMAKE_BUILD_TYPE Release)
 ENDIF()
@@ -73,6 +77,7 @@ INCLUDE_DIRECTORIES(${g2o_INCLUDE_DIR})
 # - external if EIGEN_INCLUDE_DIR_HINTS is defined
 # ============================================================================== 
 IF(NOT DEFINED EIGEN_INCLUDE_DIR_HINTS)
+  MESSAGE("Using internal Eigen")
   SET(EIGEN_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/ThirdParty/Eigen)
   MESSAGE("Eigen include DIR ${EIGEN_INCLUDE_DIR}")
   #SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/ThirdParty/Eigen/cmake)
