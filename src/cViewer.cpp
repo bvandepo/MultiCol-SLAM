@@ -84,9 +84,9 @@ namespace MultiColSLAM
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 		pangolin::CreatePanel("menu").SetBounds(0.0, 1.0, 0.0, pangolin::Attach::Pix(175));
-		pangolin::Var<bool> menuFollowCamera("menu.Follow Camera", false, true);
+		pangolin::Var<bool> menuFollowCamera("menu.Follow Camera", true, true);
 		pangolin::Var<bool> menuShowPoints("menu.Show Points", true, true);
-		pangolin::Var<bool> menuShowKeyFrames("menu.Show KeyFrames", false, true);
+		pangolin::Var<bool> menuShowKeyFrames("menu.Show KeyFrames", true, true);
 		pangolin::Var<bool> menuShowGraph("menu.Show Graph", true, true);
 		pangolin::Var<bool> menuLocalizationMode("menu.Localization Mode", false, true);
 		pangolin::Var<bool> menuReset("menu.Reset", false, false);
@@ -110,12 +110,21 @@ namespace MultiColSLAM
 
 		bool bFollow = true;
 		bool bLocalizationMode = false;
-
+		static bool firstTime=true;
 		while (1)
 		{
 #ifndef _DEBUG
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+			if (firstTime)
+			{
+				s_cam.SetModelViewMatrix(pangolin::ModelViewLookAt(mViewpointX, mViewpointY, mViewpointZ, 0, 0, 0, 0.0, -1.0, 0.0));
+				s_cam.Follow(Twc);
+				bFollow = true;
+				firstTime=false;
+			}
+			else 
+			{
 			mpMapDrawer->GetCurrentOpenGLMCSPose(Twc);
 
 			if (menuFollowCamera && bFollow)
@@ -132,7 +141,7 @@ namespace MultiColSLAM
 			{
 				bFollow = false;
 			}
-
+			}
 			d_cam.Activate(s_cam);
 			glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 			mpMapDrawer->PublishCurrentCamera(Twc);
